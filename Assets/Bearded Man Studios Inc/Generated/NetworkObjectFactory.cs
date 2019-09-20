@@ -55,6 +55,14 @@ namespace BeardedManStudios.Forge.Networking.Generated
 						availableCallback = true;
 						obj = new TestNetworkObject(networker, id, frame);
 						break;
+					case wowNetworkObject.IDENTITY:
+						availableCallback = true;
+						obj = new wowNetworkObject(networker, id, frame);
+						break;
+					case NewPlayerNetworkObject.IDENTITY:
+						availableCallback = true;
+						obj = new NewPlayerNetworkObject(networker, id, frame);
+						break;
 				}
 
 				if (!availableCallback)

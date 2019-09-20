@@ -54,6 +54,8 @@ MonoBehaviour:
   PlayerNetworkObject:
   - {fileID: 1760598452324474, guid: 6b4acefbb25517e4a8f7b0b694e11548, type: 2}
   TestNetworkObject: []
+  wowNetworkObject: []
+  NewPlayerNetworkObject: []
   automaticScenes: 1
 --- !u!1001 &100100000
 Prefab:

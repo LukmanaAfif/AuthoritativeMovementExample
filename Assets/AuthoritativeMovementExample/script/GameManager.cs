@@ -1,6 +1,7 @@
 ﻿using BeardedManStudios.Forge.Networking.Generated;
 using BeardedManStudios.Forge.Networking.Unity;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace AuthMovementExample
 {
@@ -35,15 +36,20 @@ namespace AuthMovementExample
                     // Instantiate the player on the main Unity thread, get the Id of its owner and add it to a list of players
                     MainThreadManager.Run(() =>
                     {
-                        PlayerBehavior p = NetworkManager.Instance.InstantiatePlayer();
+                        Debug.Log("Player : trying to instantiate");
+                        PlayerBehavior p = NetworkManager.Instance.InstantiatePlayer();                        
+                        Debug.Log("Player : Instantiated");
                         p.networkObject.ownerNetId = player.NetworkId;
+                        Debug.Log("Player : ID " + p.networkObject.ownerNetId);
                         _playerObjects.Add(player.NetworkId, p);
+                        Debug.Log("Player : added to the list ");
                     });
                 };
 
                 NetworkManager.Instance.Networker.playerDisconnected += (player, sender) =>
                 {
                     // Remove the player from the list of players and destroy it
+                    //PlayerBehavior p = _playerObjects[player.NetworkId];
                     PlayerBehavior p = _playerObjects[player.NetworkId];
                     _playerObjects.Remove(player.NetworkId);
                     p.networkObject.Destroy();

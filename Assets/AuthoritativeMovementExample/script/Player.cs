@@ -159,6 +159,7 @@ namespace AuthMovementExample
             try
             {
                 PlayerUpdate(_currentInput);
+                Debug.Log("FIXED UPDATE: Player updated");
             }
             catch (Exception e)
             {

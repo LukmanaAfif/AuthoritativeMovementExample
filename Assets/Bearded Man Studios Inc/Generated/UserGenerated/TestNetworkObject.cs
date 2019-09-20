@@ -500,6 +500,10 @@ namespace BeardedManStudios.Forge.Networking.Generated
 			if ((0x8 & _dirtyFields[1]) != 0)
 				UnityObjectMapper.Instance.MapBytes(dirtyFieldsData, _fieldDouble);
 
+			// Reset all the dirty fields
+			for (int i = 0; i < _dirtyFields.Length; i++)
+				_dirtyFields[i] = 0;
+
 			return dirtyFieldsData;
 		}
 
